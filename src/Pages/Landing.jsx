@@ -25,7 +25,7 @@ import SliderPartners from "../Components/Slider";
 import Footer from "../Components/Footer";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate } from "react-router-dom";
-import SewedyVidoe from "../assets/Expo12.mp4";
+import SewedyVidoe from "../assets/sewedyVidoe.mp4";
 
 const Landing = () => {
   const { inView, ref } = useInView();
