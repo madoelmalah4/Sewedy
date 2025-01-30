@@ -44,31 +44,7 @@ const About = () => {
             zIndex: -1,
           }}
         />
-        <Stack
-          sx={{
-            position: "relative",
-            zIndex: 2,
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "transparent",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: { lg: "70px", md: "60px", sm: "40px", xs: "40px" },
-              fontWeight: "600",
-              color: "#273341",
-              ml: { lg: 20 },
-              mb: 10,
-              textAlign: { xs: "center", lg: "left", md: "center" },
-            }}
-          >
-            <span style={{ color: "#DA1B1B" }}>El Sewedy</span> International
-            School for Applied Technology and Software
-          </Typography>
-        </Stack>
+       
       </Stack>
     </Stack>
   );
