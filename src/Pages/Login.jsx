@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography, Grid } from "@mui/material";
-import {
-  useLoginMutation,
-} from "../Slices/AuthSlice/AuthInjection";
+import { useLoginMutation } from "../Slices/AuthSlice/AuthInjection";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "./SnackbarProvider";
 
@@ -10,48 +8,42 @@ const Login = () => {
   const [formValues, setFormValues] = useState({ name: "", password: "" });
   const [errors, setErrors] = useState({ name: "", password: "" });
   const navigate = useNavigate();
-
   const [login, { isLoading: isLoginLoading }] = useLoginMutation();
   const { showSnackbar } = useSnackbar();
 
-
+  // Validate form inputs
   const validate = () => {
     const newErrors = {};
-    if (!formValues.name) {
-      newErrors.name = "Name is required.";
-    } else if (formValues.name.length < 3) {
-      newErrors.name = "Name must be at least 3 characters.";
-    }
-
-    if (!formValues.password) {
-      newErrors.password = "Password is required.";
-    } else if (formValues.password.length < 3) {
-      newErrors.password = "Password must be at least 6 characters.";
-    }
-
+    if (!formValues.name) newErrors.name = "Name is required.";
+    if (!formValues.password) newErrors.password = "Password is required.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
+  // Handle input changes
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    setErrors({ ...errors, [name]: "" }); // Clear error on input change
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!validate()) {
       showSnackbar("Please fix the form errors.", "error");
       return;
     }
 
-    const res = await login(formValues).unwrap();
-    if(res)
-    {
-            showSnackbar("Please fix the form errors.", "error");
+    try {
+      const res = await login(formValues).unwrap();
+      if (res) {
+        showSnackbar("Login successful!", "success");
+        navigate("/landing");
+      }
+    } catch (error) {
+      showSnackbar("Login failed. Please check your credentials.", "error");
     }
-
   };
 
   return (
@@ -61,50 +53,53 @@ const Login = () => {
       alignItems="center"
       sx={{ minHeight: "100vh", backgroundColor: "#f4f4f9" }}
     >
-      <Grid item xs={11} sm={8} md={4}>
+      <Grid item xs={12} sm={8} md={6} lg={4}>
         <Box
           component="form"
           onSubmit={handleSubmit}
           sx={{
             p: 4,
             borderRadius: 2,
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
             backgroundColor: "#fff",
+            textAlign: "center",
           }}
         >
+          {/* Title */}
           <Typography
-            variant="h5"
+            variant="h4"
             component="h1"
-            sx={{ mb: 3, textAlign: "center", fontWeight: "bold" }}
+            sx={{ mb: 4, fontWeight: "bold", color: "#1976d2" }}
           >
             Login
           </Typography>
 
+          {/* Name Input */}
           <TextField
             label="Name"
-            variant="outlined"
-            fullWidth
             name="name"
             value={formValues.name}
             onChange={handleChange}
             error={!!errors.name}
             helperText={errors.name}
+            fullWidth
             sx={{ mb: 3 }}
           />
 
+          {/* Password Input */}
           <TextField
             label="Password"
             type="password"
-            variant="outlined"
-            fullWidth
             name="password"
             value={formValues.password}
             onChange={handleChange}
             error={!!errors.password}
             helperText={errors.password}
-            sx={{ mb: 3 }}
+            fullWidth
+            sx={{ mb: 4 }}
           />
 
+          {/* Submit Button */}
           <Button
             type="submit"
             variant="contained"
@@ -112,13 +107,12 @@ const Login = () => {
             disabled={isLoginLoading}
             sx={{
               py: 1.5,
-              textTransform: "none",
               fontWeight: "bold",
               backgroundColor: "#1976d2",
               "&:hover": { backgroundColor: "#1565c0" },
             }}
           >
-            {isLoginLoading ? "Logging in..." : "Submit"}
+            {isLoginLoading ? "Logging in..." : "Login"}
           </Button>
         </Box>
       </Grid>

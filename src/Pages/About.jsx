@@ -43,14 +43,14 @@ function About() {
             backgroundImage: `url(${sewedy})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "blur(5px)",
+            filter: "blur(1px)",
             maskImage: "linear-gradient(to top, transparent, black)",
             WebkitMaskImage: "linear-gradient(to top, transparent, black)",
             zIndex: -1,
           }}
         />
         {/* Title */}
-        <Box sx={{ position: "relative", zIndex: 1 }}>
+        <Box sx={{ position: "relative", zIndex: 1, mt: 20 }}>
           <Typography
             variant={isMobile ? "h1" : "h1"}
             fontWeight="bold"
@@ -114,7 +114,7 @@ function About() {
       </Container>
 
       {/* Today */}
-      <Container sx={{ mt: 10, textAlign: "center" }}>
+      <Container sx={{ mt: 10, textAlign: "center" ,mb:30 }}>
         <Typography variant="h2" fontWeight="bold" color="#DA1B1B" gutterBottom>
           Today
         </Typography>
