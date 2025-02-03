@@ -275,7 +275,7 @@ const Landing = () => {
           p: { xs: 2, md: 10 }, // Responsive padding
           flexDirection: { xs: "column", md: "column" , lg:"row" , sm:"column" }, // Column on mobile, row on desktop
           mt: { xs: 10, md: 30 }, // Responsive margin-top
-          gap: { xs: 3, md: 0, lg: 0 }, // Gap between elements on mobile
+          gap: { xs: 3, md: 0, lg: 10 }, // Gap between elements on mobile
         }}
       >
         <Stack
