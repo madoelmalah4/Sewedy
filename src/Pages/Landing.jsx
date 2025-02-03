@@ -96,7 +96,8 @@ const Landing = () => {
               ml: { lg: 20 },
               mb: 10,
               textAlign: { xs: "center", lg: "left" , md:"center" },
-              width:"1100px"
+              width:"100%",
+              p:2
             }}
           >
             <span style={{ color: "#DA1B1B" }}>El Sewedy</span> International
