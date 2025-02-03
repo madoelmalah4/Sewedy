@@ -9,7 +9,7 @@ import {
   Stack,
 } from "@mui/material";
 import sewedy from "../assets/sewedy.png";
-import EmadImg from "../assets/Emad.png";
+import EmadImg from "../assets/emad.png";
 import { Reveal } from "../Components/Reveal";
 import { RevealLeftARight } from "../Components/RevealLeftARight";
 
