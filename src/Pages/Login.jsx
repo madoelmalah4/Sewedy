@@ -50,7 +50,6 @@ const Login = () => {
     if(res)
     {
             showSnackbar("Please fix the form errors.", "error");
-
     }
 
   };

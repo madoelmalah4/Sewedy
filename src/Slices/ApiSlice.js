@@ -4,7 +4,7 @@ import { logoutLocally, setCredentials } from "../Slices/AuthSlice/Authslice.js"
 
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "http://sewedy-platform1.runasp.net",
+    baseUrl: "https://sewedy-platform13.runasp.net",
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.token;
         if (token) {
@@ -15,7 +15,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 const refreshBaseQuery = fetchBaseQuery({
-    baseUrl: "http://sewedy-platform1.runasp.net",
+    baseUrl: "https://sewedy-platform13.runasp.net",
     prepareHeaders: (headers, { getState }) => {
         const refreshToken = getState().auth.refreshToken;
         if (refreshToken) {
