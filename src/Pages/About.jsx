@@ -23,7 +23,7 @@ function About() {
       <Box
         sx={{
           position: "relative",
-          height: { xs: 400, md: 600 },
+          height: { xs: 400, md: 700 },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -50,10 +50,10 @@ function About() {
           }}
         />
         {/* Title */}
-        <Box sx={{ position: "relative", zIndex: 1, mt: 20 }}>
+        <Box sx={{ position: "relative", zIndex: 1, mt: 60,mr:90 }}>
           <Typography
             variant={isMobile ? "h1" : "h1"}
-            fontWeight="bold"
+            fontWeight="500"
             fontSize={isMobile ? "60px" : "100px"}
             color="#1a1a1a"
           >

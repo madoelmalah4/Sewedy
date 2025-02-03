@@ -90,12 +90,13 @@ const Landing = () => {
         >
           <Typography
             sx={{
-              fontSize: { lg: "70px", md: "60px", sm: "40px", xs: "40px" },
+              fontSize: { lg: "60px", md: "60px", sm: "40px", xs: "40px" },
               fontWeight: "600",
-              color: "#273341",
+              color: "#1a1a1a",
               ml: { lg: 20 },
               mb: 10,
               textAlign: { xs: "center", lg: "left" , md:"center" },
+              width:"1100px"
             }}
           >
             <span style={{ color: "#DA1B1B" }}>El Sewedy</span> International
@@ -197,6 +198,8 @@ const Landing = () => {
                 width={"600"}
                 controls={true}
                 loop={true}
+                playing={true}
+                muted={true}
               />
             </div>
           </RevealLeftARight>
@@ -237,6 +240,7 @@ const Landing = () => {
                 position: "absolute",
                 top: { lg: "10%", sm: "7%", xs: "6%"  },
                 left: { lg: "5%", sm: "12.4%", xs: "3%" , md:"1%" },
+                fontSize:{md:"20px"}
               }}
             >
               Software Programming Specialization
@@ -491,7 +495,7 @@ const Landing = () => {
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
             color: "transparent",
-            mt: { lg: 0, sm: 30 },
+            mt: { lg: 0, sm: 30, md:20 },
           }}
         >
           Abroad 2024’
