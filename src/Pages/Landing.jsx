@@ -220,7 +220,7 @@ const Landing = () => {
             component={"Stack"}
             src={Fram}
             sx={{
-              width: { lg: "1400px", sm: "400px", xs: "350px" , md:"800px"},
+              width: { lg: "1200px", sm: "400px", xs: "350px" , md:"800px"},
               height: { lg: "400px", sm: "350px", xs: "270px" },
               backgroundImage: `url(${Fram})`,
               backgroundSize: "cover",
