@@ -7,15 +7,23 @@ import {
   Box,
   useTheme,
   Stack,
+  Grid2,
+  useMediaQuery,
 } from "@mui/material";
 import sewedy from "../assets/sewedy.png";
-import EmadImg from "../assets/emad.png";
 import { Reveal } from "../Components/Reveal";
 import { RevealLeftARight } from "../Components/RevealLeftARight";
+import qout from '../assets/q.png'
+import emad from '../assets/emad.png'
+import tele from '../assets/tele.png'
+import arrow from '../assets/arrowp.png'
+import { Email, Phone } from "@mui/icons-material";
+import Footer from "../Components/Footer";
+
 
 function About() {
   const theme = useTheme();
-  const isMobile = theme.breakpoints.down("md");
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div>
@@ -50,11 +58,11 @@ function About() {
           }}
         />
         {/* Title */}
-        <Box sx={{ position: "relative", zIndex: 1, mt: 60,mr:90 }}>
+        <Box sx={{ position: "relative", zIndex: 1, mt: 30 }}>
           <Typography
-            variant={isMobile ? "h1" : "h1"}
+            variant={isMobile ? "h6" : "h1"}
             fontWeight="500"
-            fontSize={isMobile ? "60px" : "100px"}
+            fontSize={isMobile ? "30px" : "100px"}
             color="#1a1a1a"
           >
             About <span style={{ color: "#DA1B1B" }}>El Sewedy</span> IATS
@@ -83,7 +91,7 @@ function About() {
               >
                 Foundation
               </Typography>
-              <Typography variant="h5" lineHeight={1.8}>
+              <Typography variant="h5" maxWidth={900} lineHeight={1.3}>
                 El Sewedy International School for Applied Technology and
                 Software was founded with a mission to provide quality education
                 in the fields of technology and software development. Our goal
@@ -102,7 +110,7 @@ function About() {
               >
                 Growth and Development
               </Typography>
-              <Typography variant="h5" lineHeight={1.8}>
+              <Typography variant="h5" maxWidth={900} lineHeight={1.2}>
                 Over the years, the institution expanded its facilities and
                 curriculum, attracting talented students and top educators.
                 Today, it stands as a center of excellence for applied
@@ -114,63 +122,364 @@ function About() {
       </Container>
 
       {/* Today */}
-      <Container sx={{ mt: 10, textAlign: "center" ,mb:30 }}>
+      <Container sx={{ mt: 10, textAlign: "center", mb: 30 }}>
         <Typography variant="h2" fontWeight="bold" color="#DA1B1B" gutterBottom>
           Today
         </Typography>
-        <Typography variant="h5" lineHeight={1.8} maxWidth={900} mx="auto">
+        <Typography variant="h5" lineHeight={1.8} maxWidth={400} mx="auto">
           El Sewedy IATS continues to focus on preparing students for the
           ever-evolving tech industry. With cutting-edge facilities and a
           dedicated faculty, we ensure that our students are ready to excel in
           their careers.
         </Typography>
       </Container>
-
-      {/* Founder Message */}
-      <Box
+      <Stack
         sx={{
-          mt: 10,
-          py: 8,
           backgroundColor: "#1a1a1a",
-          textAlign: "center",
-          color: "white",
+          height: "100%",
+          mb: 7,
+          position: "relative",
+          px: { xs: 2, md: 5 }, // Padding for better spacing
+          p: 10,
+          boxShadow: "4px 4px 15px rgba(8, 0, 0, 0.2)", // Adding slight glow effect
         }}
       >
-        <Container>
-          <Typography variant="h2" fontWeight="bold" color="white" gutterBottom>
-            A Message from Our Founder
-          </Typography>
-          <Avatar
-            src={EmadImg}
-            alt="Emad Zaki El Sewedy"
+        {/* Left Quote */}
+        <Box
+          component={"img"}
+          src={qout}
+          sx={{
+            width: "150px",
+            position: "absolute",
+            top: 20,
+            left: 0,
+            opacity: 0.8, // Making it subtle like the design
+          }}
+        />
+
+        {/* Right Quote */}
+        <Box
+          component={"img"}
+          src={qout}
+          sx={{
+            width: "160px",
+            position: "absolute",
+            bottom: 20,
+            right: 0,
+            opacity: 0.8,
+            rotate: "180deg",
+          }}
+        />
+
+        {/* Main Content Grid */}
+        <Grid2
+          container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: { xs: 5, md: 20 },
+            pt: 5,
+          }}
+        >
+          {/* Left Section - Text */}
+          <Stack
             sx={{
-              width: 200,
-              height: 200,
-              mx: "auto",
-              border: "5px solid #DA1B1B",
-              mt: 4,
+              alignItems: "start",
+              justifyContent: "center",
+              zIndex: 999,
+              maxWidth: "700px",
+            }}
+          >
+            <Typography
+              variant="h5"
+              lineHeight={2}
+              color="white"
+              sx={{
+                textAlign: "left",
+                fontSize: { xs: "16px", md: "20px" },
+                width: "100%",
+              }}
+            >
+              Welcome to El Sewedy IATS School. The vision behind founding this
+              school was to create an environment that fosters growth, critical
+              thinking, and personal development. We are committed to providing
+              a high-quality education that empowers every student to reach
+              their full potential.
+              <br />
+              Thank you for your trust, and I look forward to seeing our
+              students thrive.
+            </Typography>
+
+            <Typography
+              variant="subtitle1"
+              color="white"
+              sx={{ mt: 5, fontWeight: "bold" }}
+            >
+              Emad Zaki El Sewedy
+            </Typography>
+            <Typography variant="subtitle2" color="gray">
+              Founder of El Sewedy IATS
+            </Typography>
+          </Stack>
+
+          {/* Right Section - Image */}
+          <Stack
+            sx={{
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 999,
+            }}
+          >
+            <Box
+              component="img"
+              src={emad}
+              sx={{
+                width: isMobile ? "300px" : "500px",
+                mt: { xs: 5, md: 0 },
+                borderTopLeftRadius: "20px",
+                borderBottomRightRadius: "20px",
+                borderBottomLeftRadius: "5px",
+                borderTopRightRadius: "5px",
+                boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
+              }}
+            />
+          </Stack>
+        </Grid2>
+      </Stack>
+
+      <Grid2
+        container
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: { xs: 5, md: 5 },
+          pt: 5,
+          p: 4,
+          mt: 20,
+        }}
+      >
+        <Stack
+          sx={{
+            backgroundColor: "#E60000",
+            height: "140px",
+            p: 4,
+            width: "600px",
+            alignItems: "left",
+            justifyContent: "center",
+            borderRadius: "15px",
+            position: "relative",
+          }}
+        >
+          <Box
+            component={"img"}
+            src={arrow}
+            sx={{
+              width: "160px",
+              position: "absolute",
+              bottom: 2,
+              right: 0,
+              opacity: 0.5,
+              rotate: "180deg",
+              boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
             }}
           />
+
+          <Typography variant="h3" color="white" fontWeight="bold" gutterBottom>
+            Mission
+          </Typography>
           <Typography
-            variant="h5"
-            lineHeight={1.8}
-            maxWidth={800}
-            mx="auto"
-            mt={6}
+            variant={isMobile ? "h6" : "h4"}
+            maxWidth={900}
+            lineHeight={1.3}
+            color="white"
+            zIndex={999}
+            sx={{
+              fontSize: { xs: "12px", sm: "14px" },
+            }}
           >
-            "At El Sewedy IATS, our mission is to empower students with the
-            skills and knowledge they need to succeed in the technology-driven
-            world. We are committed to fostering an environment of innovation,
-            growth, and excellence."
+            Preparing secondary school students to compete in the local and
+            international job market in the field of software development,
+            through modern international curricula and qualified educational
+            staff, to graduate skilled professionals with strong values
           </Typography>
-          <Typography variant="h4" fontWeight="bold" color="#DA1B1B" mt={4}>
-            - Emad Zaki El Sewedy
+        </Stack>
+        <Stack
+          sx={{
+            backgroundColor: "#E60000",
+            height: "140px",
+            p: 4,
+            width: "600px",
+            alignItems: "left",
+            justifyContent: "center",
+            borderRadius: "15px",
+            position: "relative",
+          }}
+        >
+          <Box
+            component={"img"}
+            src={tele}
+            sx={{
+              width: "160px",
+              position: "absolute",
+              bottom: 20,
+              right: 0,
+              opacity: 0.5,
+              rotate: "180deg",
+              boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
+            }}
+          />
+
+          <Typography variant="h3" color="white" fontWeight="bold" gutterBottom>
+            Vision
           </Typography>
-          <Typography variant="h6" fontWeight="200" color="white" mt={4}>
-            Founder of El Sewedy IATS
+          <Typography
+            variant={isMobile ? "h6" : "h4"}
+            maxWidth={900}
+            lineHeight={1.3}
+            color="white"
+            zIndex={999}
+            sx={{
+              fontSize: { xs: "12px", sm: "14px" },
+            }}
+          >
+            A leading beacon that inspires and prepares outstanding
+            professionals who contribute to building the future of software
+            development both locally and internationally.
           </Typography>
-        </Container>
+        </Stack>
+      </Grid2>
+
+      <Box sx={{ px: { xs: 2, md: 10 }, py: 5, mt: 10 }}>
+        {/* Title */}
+        <Typography variant="h4" fontWeight="bold" mb={3} textAlign="center">
+          How to Find Us
+        </Typography>
+
+        {/* Contact Details (Phone & Email in One Line) */}
+        <Grid container spacing={3} justifyContent="center" alignItems="center">
+          <Grid
+            item
+            xs={12}
+            md={6}
+            display="flex"
+            gap={2}
+            justifyContent="center"
+          >
+            {/* Phone */}
+            <Box
+              sx={{
+                border: "2px solid red",
+                borderRadius: "15px",
+                p: 2,
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                width: "100%",
+                maxWidth: "300px",
+              }}
+            >
+              <Phone sx={{ color: "red" }} />
+              <Box>
+                <Typography variant="body2" color="gray">
+                  Call us on
+                </Typography>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  color="red"
+                  component="a"
+                  href="tel:+201289007669"
+                  sx={{ textDecoration: "none" }}
+                >
+                  +20 1289007669
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* Email */}
+            <Box
+              sx={{
+                border: "2px solid red",
+                borderRadius: "15px",
+                p: 2,
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                width: "100%",
+                maxWidth: "300px",
+              }}
+            >
+              <Email sx={{ color: "red" }} />
+              <Box>
+                <Typography variant="body2" color="gray">
+                  Email
+                </Typography>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  color="red"
+                  component="a"
+                  href="mailto:elsewedy.iats@gmail.com"
+                  sx={{ textDecoration: "none" }}
+                >
+                  elsewedy.iats@gmail.com
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+
+        {/* Location (In One Line & Clickable) */}
+        <Grid container spacing={3} mt={3} justifyContent="center">
+          <Grid item xs={12} md={8}>
+            <Box
+              sx={{
+                border: "2px solid red",
+                borderRadius: "20px",
+                p: 3,
+                textAlign: "center",
+              }}
+            >
+              <Typography variant="body2" color="gray">
+                Where can you find us
+              </Typography>
+              <Typography
+                variant="body1"
+                fontWeight="bold"
+                color="red"
+                mb={2}
+                component="a"
+                href="https://www.google.com/maps/place/El+Sewedy+IATS+School/@30.0322747,31.2000924,17z"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ textDecoration: "none" }}
+              >
+                New Zahraa October City, Sector D, Sidik El-Manshawi Street,
+                next to Sector D Center and Talaat Harb School, Giza
+                Governorate, Egypt.
+              </Typography>
+
+              {/* Fixed Google Maps Embed (No API Key Required) */}
+              <Box
+                component="iframe"
+                sx={{
+                  width: "100%",
+                  height: { xs: "250px", md: "250px" },
+                  borderRadius: "15px",
+                }}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.4534997282824!2d30.9043402!3d29.8828274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145855d052038511%3A0x7d8fe87a2f888771!2z2YXYsdmD2LIg2KfZhNmC2LfYqNipINin2YTYq9mK2YHYp9iqINmE2YTZhNmF2Lkg2KfZhNmF2K_ZitixINin2YTYqtit2LfYsdmK2YXYp9iq!5e0!3m2!1sen!2seg!4v1707675945654!5m2!1sen!2seg"
+                allowFullScreen
+                loading="lazy"
+              ></Box>
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
+      <Footer />
     </div>
   );
 }

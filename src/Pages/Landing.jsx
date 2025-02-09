@@ -82,7 +82,7 @@ const Landing = () => {
             position: "relative",
             zIndex: 2,
             justifyContent: "center",
-            alignItems:"center",
+            alignItems: "center",
             width: "100%",
             height: "100%",
             backgroundColor: "transparent",
@@ -95,17 +95,16 @@ const Landing = () => {
               color: "#1a1a1a",
               ml: { lg: 20 },
               mb: 10,
-              textAlign: { xs: "center", lg: "left" , md:"center" },
-              width:"100%",
-              p:2
+              textAlign: { xs: "center", lg: "left", md: "center" },
+              width: "90%",
+              p: 2,
             }}
           >
             <span style={{ color: "#DA1B1B" }}>El Sewedy</span> International
             School for Applied Technology and Software
           </Typography>
-          <Stack sx={{
-          }}>
-            <CostumButton Text={"Learn More"}/>
+          <Stack sx={{}}>
+            <CostumButton Text={"Learn More"} />
           </Stack>
         </Stack>
       </Stack>
@@ -116,14 +115,14 @@ const Landing = () => {
           justifyContent: "center",
           alignItems: "flex-start",
           backgroundColor: "white",
-          flexDirection: { lg: "row"},
+          flexDirection: { lg: "row" },
           mt: 20,
           gap: { lg: 6, md: 10, sm: 10, xs: 10 },
         }}
       >
         <Stack
           sx={{
-            alignItems:"center",
+            alignItems: "center",
             justifyContent: "center",
             width: "100%",
             gap: 6,
@@ -131,13 +130,13 @@ const Landing = () => {
         >
           <RevealLeftARight duration={0.3} isOnce={false} direction={true}>
             <Typography
-              variant="h2"
+              variant={isMobile ? "h5" : "h2"}
               sx={{
                 fontWeight: "600",
                 color: "#1a1a1a",
                 fontFamily: "Rubik",
                 // textAlign: { sm: "center", lg: "left", xs: "center" , md:"center" },
-                textAlign:"center"
+                textAlign: "center",
               }}
             >
               <Box
@@ -157,9 +156,11 @@ const Landing = () => {
                 fontWeight: "200",
                 color: "#1a1a1a",
                 fontFamily: "Rubik",
-                textAlign:"center",
-                p:2,
-                textOverflow:"wrap"
+                textAlign: "center",
+                p: 2,
+                textOverflow: "wrap",
+                textAlign: "left",
+                fontSize: { md: "25px" },
               }}
             >
               The Swedish International School for Applied Technology and
@@ -220,7 +221,7 @@ const Landing = () => {
             component={"Stack"}
             src={Fram}
             sx={{
-              width: { lg: "1200px", sm: "400px", xs: "350px" , md:"800px"},
+              width: { lg: "1200px", sm: "400px", xs: "350px", md: "800px" },
               height: { lg: "400px", sm: "350px", xs: "270px" },
               backgroundImage: `url(${Fram})`,
               backgroundSize: "cover",
@@ -239,9 +240,9 @@ const Landing = () => {
                 fontFamily: "Rubik",
                 width: "700px",
                 position: "absolute",
-                top: { lg: "10%", sm: "7%", xs: "6%"  },
-                left: { lg: "5%", sm: "12.4%", xs: "3%" , md:"1%" },
-                fontSize:{md:"20px"}
+                top: { lg: "10%", sm: "7%", xs: "6%" },
+                left: { lg: "5%", sm: "12.4%", xs: "3%", md: "1%" },
+                fontSize: { md: "20px", lg: "30px" },
               }}
             >
               Software Programming Specialization
@@ -251,11 +252,11 @@ const Landing = () => {
               sx={{
                 fontWeight: "200",
                 color: "White",
-                fontSize: { lg: "26px", sm: "17px", xs: "14px" , md:"20px" },
+                fontSize: { lg: "26px", sm: "17px", xs: "14px", md: "20px" },
                 fontFamily: "Rubik",
-                width: { lg: "800px", sm: "350px", xs: "300px"  ,md:"500px"},
+                width: { lg: "800px", sm: "350px", xs: "300px", md: "500px" },
                 position: "absolute",
-                top: { lg: "30%", sm: "20%", xs: "23%" , md:"25%" },
+                top: { lg: "30%", sm: "20%", xs: "23%", md: "25%" },
                 left: { lg: "5%", sm: "3%", xs: "2%" },
               }}
             >
@@ -278,7 +279,12 @@ const Landing = () => {
           justifyContent: "start",
           alignItems: "center",
           p: { xs: 2, md: 10 }, // Responsive padding
-          flexDirection: { xs: "column", md: "column" , lg:"row" , sm:"column" }, // Column on mobile, row on desktop
+          flexDirection: {
+            xs: "column",
+            md: "column",
+            lg: "row",
+            sm: "column",
+          }, // Column on mobile, row on desktop
           mt: { xs: 10, md: 30 }, // Responsive margin-top
           gap: { xs: 3, md: 0, lg: 10 }, // Gap between elements on mobile
         }}
@@ -294,7 +300,7 @@ const Landing = () => {
         >
           <RevealLeftARight duration={0.3} isOnce={false} direction={true}>
             <Typography
-              variant="h2"
+              variant={isMobile ? "h6" : "h3"}
               sx={{
                 fontWeight: "600",
                 color: "#1a1a1a",
@@ -303,6 +309,7 @@ const Landing = () => {
                 textAlign: { xs: "center", lg: "left" }, // Center text on mobile
                 width: "100%",
                 ml: { lg: 1 },
+                textWrap:{lg:"nowrap"}
               }}
             >
               <Box
@@ -325,7 +332,7 @@ const Landing = () => {
               listStyleType: "none", // Remove default bullet points
               gap: 2,
               pl: 0,
-              ml: { lg: 2, sm: 2, xs: 1 ,md:-22 },
+              ml: { lg: 2, sm: 2, xs: 1, md: -22 },
               alignItems: "flex-start",
               justifyContent: "flex-start",
             }}
@@ -370,7 +377,12 @@ const Landing = () => {
                     component="li"
                     fontWeight={200}
                     sx={{
-                      fontSize: { xs: "16px", md: "24px", sm: "14px" },
+                      fontSize: {
+                        xs: "16px",
+                        md: "24px",
+                        sm: "14px",
+                        lg: "20px",
+                      },
                       textWrap: "wrap",
                       width: "100%",
                     }}
@@ -388,7 +400,7 @@ const Landing = () => {
             src={LandPic}
             component={"img"}
             sx={{
-              width: { xs: "90%", md: "500px" }, // Responsive image width
+              width: { xs: "90%", md: "500px", lg: "400px" }, // Responsive image width
               height: "auto",
               borderRadius: "40px",
               boxShadow: "5px 5px 10px rgba(0,0,0,0.1)",
@@ -496,7 +508,7 @@ const Landing = () => {
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
             color: "transparent",
-            mt: { lg: 0, sm: 30, md:20 },
+            mt: { lg: 0, sm: 30, md: 20 },
           }}
         >
           Abroad 2024’

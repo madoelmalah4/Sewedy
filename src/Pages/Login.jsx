@@ -1,21 +1,36 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, Typography, Grid } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Grid,
+  CircularProgress,
+} from "@mui/material";
 import { useLoginMutation } from "../Slices/AuthSlice/AuthInjection";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "./SnackbarProvider";
 
 const Login = () => {
   const [formValues, setFormValues] = useState({ name: "", password: "" });
-  const [errors, setErrors] = useState({ name: "", password: "" });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const [login, { isLoading: isLoginLoading }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const { showSnackbar } = useSnackbar();
+
+  // Regex for name and password validation
 
   // Validate form inputs
   const validate = () => {
     const newErrors = {};
-    if (!formValues.name) newErrors.name = "Name is required.";
-    if (!formValues.password) newErrors.password = "Password is required.";
+    if (!formValues.name.trim()) {
+      newErrors.name = "Name is required.";
+    } 
+
+    if (!formValues.password) {
+      newErrors.password = "Password is required.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -23,26 +38,28 @@ const Login = () => {
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-    setErrors({ ...errors, [name]: "" }); // Clear error on input change
+    setFormValues((prev) => ({ ...prev, [name]: value.trim() }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); // Clear error on input change
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) {
-      showSnackbar("Please fix the form errors.", "error");
-      return;
-    }
+    if (!validate()) return;
 
     try {
-      const res = await login(formValues).unwrap();
-      if (res) {
+      const res = await login({...formValues}).unwrap();
+      if (res?.message === "Vaild") {
         showSnackbar("Login successful!", "success");
-        navigate("/landing");
+        navigate("/"); // Redirect to dashboard
+      } else {
+        showSnackbar("Invalid credentials, please try again.", "error");
       }
     } catch (error) {
-      showSnackbar("Login failed. Please check your credentials.", "error");
+      showSnackbar(
+        error?.data?.message || "Login failed. Please try again.",
+        "error"
+      );
     }
   };
 
@@ -60,7 +77,7 @@ const Login = () => {
           sx={{
             p: 4,
             borderRadius: 2,
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
             backgroundColor: "#fff",
             textAlign: "center",
           }}
@@ -104,7 +121,7 @@ const Login = () => {
             type="submit"
             variant="contained"
             fullWidth
-            disabled={isLoginLoading}
+            disabled={isLoading}
             sx={{
               py: 1.5,
               fontWeight: "bold",
@@ -112,7 +129,11 @@ const Login = () => {
               "&:hover": { backgroundColor: "#1565c0" },
             }}
           >
-            {isLoginLoading ? "Logging in..." : "Login"}
+            {isLoading ? (
+              <CircularProgress size={24} sx={{ color: "#fff" }} />
+            ) : (
+              "Login"
+            )}
           </Button>
         </Box>
       </Grid>
