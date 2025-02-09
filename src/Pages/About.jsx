@@ -13,13 +13,12 @@ import {
 import sewedy from "../assets/sewedy.png";
 import { Reveal } from "../Components/Reveal";
 import { RevealLeftARight } from "../Components/RevealLeftARight";
-import qout from '../assets/q.png'
-import emad from '../assets/emad.png'
-import tele from '../assets/tele.png'
-import arrow from '../assets/arrowp.png'
+import qout from "../assets/q.png";
+import emad from "../assets/emad.png";
+import tele from "../assets/tele.png";
+import arrow from "../assets/arrowp.png";
 import { Email, Phone } from "@mui/icons-material";
 import Footer from "../Components/Footer";
-
 
 function About() {
   const theme = useTheme();
@@ -360,7 +359,15 @@ function About() {
         </Typography>
 
         {/* Contact Details (Phone & Email in One Line) */}
-        <Grid container spacing={3} justifyContent="center" alignItems="center">
+        <Grid
+          container
+          spacing={3}
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            flexWrap: "wrap",
+          }}
+        >
           <Grid
             item
             xs={12}
@@ -368,6 +375,9 @@ function About() {
             display="flex"
             gap={2}
             justifyContent="center"
+            sx={{
+              flexWrap: "wrap",
+            }}
           >
             {/* Phone */}
             <Box
@@ -479,7 +489,11 @@ function About() {
           </Grid>
         </Grid>
       </Box>
-      <Footer />
+      <div style={{
+        display:"flex",
+      }}>
+        <Footer />
+      </div>
     </div>
   );
 }
