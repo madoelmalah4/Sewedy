@@ -54,6 +54,7 @@ const Navbar = () => {
           justifyContent: "center",
           gap: isSmallScreen ? "15px" : "30px",
           mt: isSmallScreen ? 2 : 0,
+          mr:6
         }}
       >
         <Reveal duration={0.8}>
@@ -152,7 +153,6 @@ const Navbar = () => {
             height={isSmallScreen ? "40px" : "44px"}
             Text={"Login"}
             border={"10px"}
-            path={"/login"}
           />
       </Stack>
     </Stack>
