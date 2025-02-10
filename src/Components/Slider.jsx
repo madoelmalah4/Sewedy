@@ -101,7 +101,7 @@ const SliderPartners = () => {
               sx={{
                 width: "100%",
                 height: "auto",
-                maxWidth: "200px",
+                maxWidth: "150px",
                 objectFit: "contain",
               }}
             />

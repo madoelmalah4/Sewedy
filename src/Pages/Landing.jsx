@@ -26,13 +26,13 @@ import Footer from "../Components/Footer";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate } from "react-router-dom";
 import SewedyVidoe from "../assets/sewedyVidoe.mp4";
+import homep from "../assets/homep.png";
 
 const Landing = () => {
   const { inView, ref } = useInView();
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
 
   const { ref: videoRef, inView: isVideoInView } = useInView({
     threshold: 0.5,
@@ -112,32 +112,33 @@ const Landing = () => {
       <Stack
         sx={{
           width: "100vw",
-          minHeight: "800px",
+          minHeight: { lg: "800px", md: "700px", sm: "600px", xs: "auto" },
           justifyContent: "center",
-          alignItems: "flex-start",
+          alignItems: "center",
           backgroundColor: "white",
-          flexDirection: { lg: "row" },
-          mt: 20,
-          gap: { lg: 6, md: 10, sm: 10, xs: 10 },
+          flexDirection: { lg: "row", xs: "column" },
+          mt: { lg: 20, md: 15, sm: 10, xs: 5 },
+          px: { lg: 10, md: 6, sm: 4, xs: 2 }, // Add padding for better spacing
+          gap: { lg: 5, xs: 3 },
         }}
       >
+        {/* TEXT CONTENT */}
         <Stack
           sx={{
             alignItems: "center",
             justifyContent: "center",
-            width: "100%",
-            gap: 6,
+            width: { lg: "50%", xs: "100%" },
+            gap: 4,
+            textAlign: "center",
           }}
         >
-          <RevealLeftARight duration={0.3} isOnce={false} direction={true}>
+          <RevealLeftARight duration={0.3} isOnce={true} direction={true}>
             <Typography
               variant={isMobile ? "h5" : "h2"}
               sx={{
                 fontWeight: "600",
                 color: "#1a1a1a",
                 fontFamily: "Rubik",
-                // textAlign: { sm: "center", lg: "left", xs: "center" , md:"center" },
-                textAlign: "center",
               }}
             >
               <Box
@@ -150,129 +151,113 @@ const Landing = () => {
             </Typography>
           </RevealLeftARight>
 
-          <RevealLeftARight duration={0.3} isOnce={false} direction={true}>
+          <RevealLeftARight duration={0.3} isOnce={true} direction={true}>
             <Typography
-              variant={isMobile ? "h6" : "h3"}
+              variant={isMobile ? "h6" : "h4"}
               sx={{
-                fontWeight: "200",
+                fontWeight: "300",
                 color: "#1a1a1a",
                 fontFamily: "Rubik",
                 textAlign: "center",
                 p: 2,
-                textOverflow: "wrap",
-                textAlign: "left",
-                fontSize: { md: "25px" },
+                fontSize: { lg: "22px", md: "20px", sm: "18px", xs: "16px" },
+                lineHeight: "1.5",
               }}
             >
               The Swedish International School for Applied Technology and
               Software was established in 2022. It is one of the top ten
-              international schools for applied technology. The school is a
-              partnership between the Ministry of Education, El Sewedy
-              Electrometer, and the Workforce Project in Egypt, funded by the
-              U.S. Agency for International Development (USAID). The school
-              follows international quality standards. Our mission is to equip
-              students with the skills needed for success both locally and
+              international schools for applied technology. Our mission is to
+              equip students with the skills needed for success both locally and
               internationally, shaping a brighter future through innovative
-              education.{" "}
+              education.
             </Typography>
           </RevealLeftARight>
         </Stack>
+
+        {/* VIDEO SECTION */}
         <Stack
           sx={{
-            justifyContent: "right",
-            width: "100%",
-            mr: 9,
-            gap: 3,
-            mt: { lg: 7, md: 0, sm: 0 },
-          }}
-        >
-          <RevealLeftARight duration={0.6} direction={false}>
-            <div
-              style={{
-                borderRadius: "30px",
-                overflow: "hidden",
-                border: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)", // Add a shadow
-              }}
-            >
-              <ReactPlayer
-                url={SewedyVidoe}
-                height={"400"}
-                width={"600"}
-                controls={true}
-                loop={true}
-                playing={true}
-                muted={true}
-              />
-            </div>
-          </RevealLeftARight>
-        </Stack>
-      </Stack>
-      <Reveal duration={0.3} isOnce={false}>
-        <Stack
-          sx={{
-            width: "100vw",
             justifyContent: "center",
             alignItems: "center",
-            p: 10,
-            mt: { xs: 20, sm: 7 },
+            width: { lg: "50%", xs: "100%" },
+            gap: 3,
+            mt: { lg: 0, xs: 5 }, // Adjust spacing for mobile
           }}
         >
           <Box
-            component={"Stack"}
-            src={Fram}
             sx={{
-              width: { lg: "1200px", sm: "400px", xs: "350px", md: "800px" },
-              height: { lg: "400px", sm: "350px", xs: "270px" },
-              backgroundImage: `url(${Fram})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              borderRadius: "14px",
-              position: "relative",
-              mt: { sm: 20, lg: 0 },
+              borderRadius: { lg: "30px", md: "25px", sm: "20px", xs: "15px" },
+              overflow: "hidden",
+              border: "5px solid transparent",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+              width: { lg: "80%", md: "90%", sm: "95%", xs: "100%" },
             }}
           >
-            <Typography
-              variant={!isMobile ? "h2" : "h6"}
-              sx={{
-                fontWeight: "bold",
-                color: "White",
-                fontFamily: "Rubik",
-                width: "700px",
-                position: "absolute",
-                top: { lg: "10%", sm: "7%", xs: "6%" },
-                left: { lg: "5%", sm: "12.4%", xs: "3%", md: "1%" },
-                fontSize: { md: "20px", lg: "30px" },
-              }}
-            >
-              Software Programming Specialization
-            </Typography>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: "200",
-                color: "White",
-                fontSize: { lg: "26px", sm: "17px", xs: "14px", md: "20px" },
-                fontFamily: "Rubik",
-                width: { lg: "800px", sm: "350px", xs: "300px", md: "500px" },
-                position: "absolute",
-                top: { lg: "30%", sm: "20%", xs: "23%", md: "25%" },
-                left: { lg: "5%", sm: "3%", xs: "2%" },
-              }}
-            >
-              The Programming specialization at our school is one of the modern
-              and essential fields that keep up with the developments of the
-              digital age. Our students study the latest programming languages
-              and software development techniques, helping them build strong
-              skills in problem-solving and application development. We believe
-              in the importance of providing our students with the technical
-              knowledge needed for the future, as they learn how to transform
-              ideas into innovative solutions through programming.{" "}
-            </Typography>
+            <ReactPlayer
+              url={SewedyVidoe}
+              height="100%"
+              width="100%"
+              controls={true}
+              loop={true}
+              playing={true}
+              muted={true}
+            />
           </Box>
         </Stack>
-      </Reveal>
+      </Stack>
+
+      {/* SPECIALIZATION SECTION */}
+      <Stack
+        sx={{
+          backgroundColor: "#E60000",
+          height: "100%",
+          p: { lg: 6, md: 5, sm: 4, xs: 3 },
+          width: "80%",
+          alignItems: "flex-start",
+          justifyContent: "center",
+          borderRadius: "15px",
+          position: "relative",
+          transition: "0.3s ease",
+          mt: 20,
+          gap: 2,
+          "&:hover": { scale: 1.02 },
+        }}
+      >
+        <Box
+          component={"img"}
+          src={homep}
+          sx={{
+            width: "160px",
+            position: "absolute",
+            bottom: 10,
+            right: 10,
+            opacity: 0.5,
+            boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)",
+          }}
+        />
+
+        <Typography variant="h3" color="white" fontWeight="bold" gutterBottom>
+          Software Programming Specialization
+        </Typography>
+
+        <Typography
+          variant={isMobile ? "h6" : "h4"}
+          maxWidth={900}
+          lineHeight={1.3}
+          color="white"
+          zIndex={999}
+          sx={{
+            fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "14px" },
+            textAlign: "left",
+          }}
+        >
+          The Programming specialization at our school is one of the modern and
+          essential fields that keep up with the developments of the digital
+          age. Students learn the latest programming languages and software
+          development techniques, preparing them to become skilled
+          problem-solvers in the tech industry.
+        </Typography>
+      </Stack>
 
       <Stack
         sx={{
@@ -299,7 +284,7 @@ const Landing = () => {
             ml: { lg: 10, md: 0, sm: 0 },
           }}
         >
-          <RevealLeftARight duration={0.3} isOnce={false} direction={true}>
+          <RevealLeftARight duration={0.3} isOnce={true} direction={true}>
             <Typography
               variant={isMobile ? "h6" : "h3"}
               sx={{
@@ -310,7 +295,7 @@ const Landing = () => {
                 textAlign: { xs: "center", lg: "left" }, // Center text on mobile
                 width: "100%",
                 ml: { lg: 1 },
-                textWrap:{lg:"nowrap"}
+                textWrap: { lg: "nowrap" },
               }}
             >
               <Box
@@ -354,7 +339,7 @@ const Landing = () => {
               <RevealLeftARight
                 key={index}
                 duration={0.3}
-                isOnce={false}
+                isOnce={true}
                 direction={true}
               >
                 <Stack
@@ -396,7 +381,7 @@ const Landing = () => {
           </Stack>
         </Stack>
 
-        <RevealLeftARight duration={0.3} isOnce={false} direction={false}>
+        <RevealLeftARight duration={0.3} isOnce={true} direction={false}>
           <Box
             src={LandPic}
             component={"img"}
@@ -467,7 +452,7 @@ const Landing = () => {
                   mt: 3,
                 }}
               >
-                Some Description
+                Students
               </Typography>
             </Box>
             <Box>
@@ -481,7 +466,7 @@ const Landing = () => {
                   mt: 3,
                 }}
               >
-                Capstone projects every year
+                Accredited Certificates
               </Typography>
             </Box>
           </Box>
@@ -528,7 +513,7 @@ const Landing = () => {
         />
         <Stack
           sx={{
-            gap: { lg: 7, md: 0, sm: 10, xs: 10 },
+            gap: 10,
             alignItems: "center",
             justifyContent: "center",
             flexDirection: { lg: "row", sm: "column" },
