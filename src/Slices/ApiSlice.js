@@ -43,7 +43,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
         } else {
             api.dispatch(logoutLocally());
             // redirect to '/' if refresh token is invalid
-            window.location.href = "/";
+            // window.location.href = "/";
         }
     }
     return result;

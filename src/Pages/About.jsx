@@ -61,7 +61,7 @@ function About() {
           <Typography
             variant={isMobile ? "h6" : "h1"}
             fontWeight="500"
-            fontSize={isMobile ? "30px" : "100px"}
+            fontSize={isMobile ? "30px" : "60px"}
             color="#1a1a1a"
           >
             About <span style={{ color: "#DA1B1B" }}>El Sewedy</span> IATS
@@ -70,7 +70,7 @@ function About() {
       </Box>
 
       {/* Our Story */}
-      <Container sx={{ mt: 10, textAlign: "center", mt: 20 }}>
+      <Container sx={{ mt: 10, textAlign: "center" }}>
         <Typography
           variant={isMobile ? "h2" : "h1"}
           fontWeight="bold"
@@ -79,59 +79,56 @@ function About() {
         >
           Our Story
         </Typography>
-        <Grid container spacing={8} justifyContent="center" sx={{ mt: 4 }}>
-          <Grid item xs={12} md={6}>
-            <Stack spacing={4}>
+        <Grid container spacing={6} justifyContent="center" sx={{ mt: 4 }}>
+          <Grid item xs={12} md={5}>
+            <Stack spacing={3}>
               <Typography
-                variant="h3"
+                variant="h4"
                 color="#DA1B1B"
                 fontWeight="bold"
                 gutterBottom
+                textAlign={"center"}
               >
                 Foundation
               </Typography>
-              <Typography variant="h5" maxWidth={900} lineHeight={1.3}>
+              <Typography variant="h6" maxWidth={800} lineHeight={1.5}>
                 El Sewedy International School for Applied Technology and
-                Software was founded with a mission to provide quality education
-                in the fields of technology and software development. Our goal
-                is to equip students with the skills needed for a fast-evolving
-                tech industry.
+                Software was founded to provide quality education in technology
+                and software development.
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Stack spacing={4}>
+          <Grid item xs={12} md={5}>
+            <Stack spacing={3}>
               <Typography
-                variant="h3"
+                variant="h4"
                 color="#DA1B1B"
                 fontWeight="bold"
                 gutterBottom
               >
                 Growth and Development
               </Typography>
-              <Typography variant="h5" maxWidth={900} lineHeight={1.2}>
+              <Typography variant="h6" maxWidth={800} lineHeight={1.5}>
                 Over the years, the institution expanded its facilities and
                 curriculum, attracting talented students and top educators.
-                Today, it stands as a center of excellence for applied
-                technology education, fostering innovation and growth.
               </Typography>
             </Stack>
           </Grid>
         </Grid>
       </Container>
 
-      {/* Today */}
-      <Container sx={{ mt: 10, textAlign: "center", mb: 30 }}>
-        <Typography variant="h2" fontWeight="bold" color="#DA1B1B" gutterBottom>
+      {/* Today Section */}
+      <Container sx={{ mt: 8, textAlign: "center", mb: 15 }}>
+        <Typography variant="h4" fontWeight="bold" color="#DA1B1B" gutterBottom>
           Today
         </Typography>
-        <Typography variant="h5" lineHeight={1.8} maxWidth={400} mx="auto">
-          El Sewedy IATS continues to focus on preparing students for the
-          ever-evolving tech industry. With cutting-edge facilities and a
-          dedicated faculty, we ensure that our students are ready to excel in
-          their careers.
+        <Typography variant="h6" lineHeight={1.6} maxWidth={500} mx="auto">
+          El Sewedy IATS continues to prepare students for the ever-evolving
+          tech industry. With cutting-edge facilities and dedicated faculty, we
+          ensure that our students are ready to excel in their careers.
         </Typography>
       </Container>
+
       <Stack
         sx={{
           backgroundColor: "#1a1a1a",
@@ -139,7 +136,7 @@ function About() {
           mb: 7,
           position: "relative",
           px: { xs: 2, md: 5 }, // Padding for better spacing
-          p: 10,
+          p: 5,
           boxShadow: "4px 4px 15px rgba(8, 0, 0, 0.2)", // Adding slight glow effect
         }}
       >
@@ -148,7 +145,7 @@ function About() {
           component={"img"}
           src={qout}
           sx={{
-            width: "150px",
+            width: "300px",
             position: "absolute",
             top: 20,
             left: 0,
@@ -161,7 +158,7 @@ function About() {
           component={"img"}
           src={qout}
           sx={{
-            width: "160px",
+            width: "300px",
             position: "absolute",
             bottom: 20,
             right: 0,
@@ -191,36 +188,43 @@ function About() {
               maxWidth: "700px",
             }}
           >
-            <Typography
-              variant="h5"
-              lineHeight={2}
-              color="white"
-              sx={{
-                textAlign: "left",
-                fontSize: { xs: "16px", md: "20px" },
-                width: "100%",
-              }}
-            >
-              Welcome to El Sewedy IATS School. The vision behind founding this
-              school was to create an environment that fosters growth, critical
-              thinking, and personal development. We are committed to providing
-              a high-quality education that empowers every student to reach
-              their full potential.
-              <br />
-              Thank you for your trust, and I look forward to seeing our
-              students thrive.
-            </Typography>
-
-            <Typography
-              variant="subtitle1"
-              color="white"
-              sx={{ mt: 5, fontWeight: "bold" }}
-            >
-              Emad Zaki El Sewedy
-            </Typography>
-            <Typography variant="subtitle2" color="gray">
-              Founder of El Sewedy IATS
-            </Typography>
+            <RevealLeftARight direction="left" isOnce={true} duration={1}>
+              <Typography
+                variant="h5"
+                lineHeight={2}
+                color="white"
+                sx={{
+                  textAlign: "left",
+                  fontSize: { xs: "16px", md: "20px" },
+                  width: "100%",
+                  fontFamily: "Serif",
+                  fontWeight: "200",
+                }}
+              >
+                Welcome to El Sewedy IATS School. The vision behind founding
+                this school was to create an environment that fosters growth,
+                critical thinking, and personal development. We are committed to
+                providing a high-quality education that empowers every student
+                to reach their full potential.
+                <br />
+                Thank you for your trust, and I look forward to seeing our
+                students thrive.
+              </Typography>
+            </RevealLeftARight>
+            <RevealLeftARight direction="left" isOnce={true} duration={1.3}>
+              <Typography color="white" sx={{ mt: 5, fontSize: "25px" }}>
+                Emad Zaki El Sewedy
+              </Typography>
+              <Typography
+                fontWeight={"200"}
+                sx={{
+                  fontSize: "15px",
+                  color: "white",
+                }}
+              >
+                Founder of El Sewedy IATS
+              </Typography>
+            </RevealLeftARight>
           </Stack>
 
           {/* Right Section - Image */}
@@ -231,19 +235,21 @@ function About() {
               zIndex: 999,
             }}
           >
-            <Box
-              component="img"
-              src={emad}
-              sx={{
-                width: isMobile ? "300px" : "500px",
-                mt: { xs: 5, md: 0 },
-                borderTopLeftRadius: "20px",
-                borderBottomRightRadius: "20px",
-                borderBottomLeftRadius: "5px",
-                borderTopRightRadius: "5px",
-                boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
-              }}
-            />
+            <RevealLeftARight direction="right" isOnce={true} duration={1}>
+              <Box
+                component="img"
+                src={emad}
+                sx={{
+                  width: isMobile ? "300px" : "500px",
+                  mt: { xs: 5, md: 0 },
+                  borderTopLeftRadius: "20px",
+                  borderBottomRightRadius: "20px",
+                  borderBottomLeftRadius: "5px",
+                  borderTopRightRadius: "5px",
+                  boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
+                }}
+              />
+            </RevealLeftARight>
           </Stack>
         </Grid2>
       </Stack>
@@ -271,6 +277,10 @@ function About() {
             justifyContent: "center",
             borderRadius: "15px",
             position: "relative",
+            transition: "0.3s ease",
+            "&:hover": {
+              scale: 1.01,
+            },
           }}
         >
           <Box
@@ -316,6 +326,10 @@ function About() {
             justifyContent: "center",
             borderRadius: "15px",
             position: "relative",
+            transition: "0.3s ease",
+            "&:hover": {
+              scale: 1.01,
+            },
           }}
         >
           <Box
@@ -327,7 +341,6 @@ function About() {
               bottom: 20,
               right: 0,
               opacity: 0.5,
-              rotate: "180deg",
               boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
             }}
           />
@@ -370,13 +383,14 @@ function About() {
         >
           <Grid
             item
-            xs={12}
-            md={6}
+            xs={10}
+            md={15}
             display="flex"
             gap={2}
             justifyContent="center"
             sx={{
               flexWrap: "wrap",
+              flexDirection: "row",
             }}
           >
             {/* Phone */}
@@ -389,7 +403,7 @@ function About() {
                 alignItems: "center",
                 gap: 1.5,
                 width: "100%",
-                maxWidth: "300px",
+                maxWidth: "400px",
               }}
             >
               <Phone sx={{ color: "red" }} />
@@ -420,7 +434,7 @@ function About() {
                 alignItems: "center",
                 gap: 1.5,
                 width: "100%",
-                maxWidth: "300px",
+                maxWidth: "400px",
               }}
             >
               <Email sx={{ color: "red" }} />
@@ -489,9 +503,11 @@ function About() {
           </Grid>
         </Grid>
       </Box>
-      <div style={{
-        display:"flex",
-      }}>
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
         <Footer />
       </div>
     </div>

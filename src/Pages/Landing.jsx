@@ -33,6 +33,7 @@ const Landing = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+
   const { ref: videoRef, inView: isVideoInView } = useInView({
     threshold: 0.5,
   });

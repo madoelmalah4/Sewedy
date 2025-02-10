@@ -1,47 +1,44 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
-import { Typography } from "@mui/material";
 
 interface Props {
   children: JSX.Element;
   width?: "fit-content" | "100%";
   duration: number;
-  direction: boolean; // New prop to determine direction
-  isOnce: boolean; // New prop to determine if animation should run once
+  direction?: "left" | "right"; // Changed to a string for clarity
+  isOnce?: boolean; // Optional prop to determine if animation should run once
 }
 
 export const RevealLeftARight = ({
   children,
   width = "fit-content",
   duration,
-  direction,
-  isOnce,
+  direction = "left", // Default to left
+  isOnce = false, // Default false
 }: Props) => {
     
-  const ref = useRef(null);
-  const inViewRef = useInView(ref);
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: isOnce }); // Fixed hook usage
 
-  const animationcontrols = useAnimation();
+  const animationControls = useAnimation();
 
-  useLayoutEffect(() => {
-    if (inViewRef) {
-      animationcontrols.start("visible");
-    } else {
-      if (isOnce !== null && isOnce == true) {
-        animationcontrols.start("hidden");
-      }
+  useEffect(() => {
+    if (inView) {
+      animationControls.start("visible");
+    } else if (!isOnce) {
+      animationControls.start("hidden");
     }
-  }, [inViewRef]);
+  }, [inView]);
 
   return (
-    <div ref={ref} style={{ width}}>
+    <div ref={ref} style={{ width }}>
       <motion.div
         variants={{
-          hidden: { opacity: 0, x: direction ? -75 : 75 }, // Dynamic y value based on direction
+          hidden: { opacity: 0, x: direction === "left" ? -75 : 75 }, // Uses string instead of boolean
           visible: { opacity: 1, x: 0 },
         }}
         initial="hidden"
-        animate={animationcontrols}
+        animate={animationControls}
         transition={{ duration: duration, delay: 0.3, ease: "easeInOut" }}
       >
         {children}
