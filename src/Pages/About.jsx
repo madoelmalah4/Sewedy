@@ -197,7 +197,7 @@ function About() {
                   textAlign: "left",
                   fontSize: { xs: "16px", md: "20px" },
                   width: "100%",
-                  fontFamily: "Serif",
+                  // fontFamily: "Serif",
                   fontWeight: "200",
                 }}
               >
@@ -285,6 +285,53 @@ function About() {
         >
           <Box
             component={"img"}
+            src={tele}
+            sx={{
+              width: "160px",
+              position: "absolute",
+              bottom: 20,
+              right: 0,
+              opacity: 0.5,
+              boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
+            }}
+          />
+
+          <Typography variant="h3" color="white" fontWeight="bold" gutterBottom>
+            Vision
+          </Typography>
+          <Typography
+            variant={isMobile ? "h6" : "h4"}
+            maxWidth={900}
+            lineHeight={1.3}
+            color="white"
+            zIndex={999}
+            sx={{
+              fontSize: { xs: "12px", sm: "14px" },
+            }}
+          >
+            A leading beacon that inspires and prepares outstanding
+            professionals who contribute to building the future of software
+            development both locally and internationally.
+          </Typography>
+        </Stack>
+        <Stack
+          sx={{
+            backgroundColor: "#E60000",
+            height: "140px",
+            p: 4,
+            width: "600px",
+            alignItems: "left",
+            justifyContent: "center",
+            borderRadius: "15px",
+            position: "relative",
+            transition: "0.3s ease",
+            "&:hover": {
+              scale: 1.01,
+            },
+          }}
+        >
+          <Box
+            component={"img"}
             src={arrow}
             sx={{
               width: "160px",
@@ -314,53 +361,6 @@ function About() {
             international job market in the field of software development,
             through modern international curricula and qualified educational
             staff, to graduate skilled professionals with strong values
-          </Typography>
-        </Stack>
-        <Stack
-          sx={{
-            backgroundColor: "#E60000",
-            height: "140px",
-            p: 4,
-            width: "600px",
-            alignItems: "left",
-            justifyContent: "center",
-            borderRadius: "15px",
-            position: "relative",
-            transition: "0.3s ease",
-            "&:hover": {
-              scale: 1.01,
-            },
-          }}
-        >
-          <Box
-            component={"img"}
-            src={tele}
-            sx={{
-              width: "160px",
-              position: "absolute",
-              bottom: 20,
-              right: 0,
-              opacity: 0.5,
-              boxShadow: "4px 4px 15px rgba(255, 255, 255, 0.2)", // Adding slight glow effect
-            }}
-          />
-
-          <Typography variant="h3" color="white" fontWeight="bold" gutterBottom>
-            Vision
-          </Typography>
-          <Typography
-            variant={isMobile ? "h6" : "h4"}
-            maxWidth={900}
-            lineHeight={1.3}
-            color="white"
-            zIndex={999}
-            sx={{
-              fontSize: { xs: "12px", sm: "14px" },
-            }}
-          >
-            A leading beacon that inspires and prepares outstanding
-            professionals who contribute to building the future of software
-            development both locally and internationally.
           </Typography>
         </Stack>
       </Grid2>

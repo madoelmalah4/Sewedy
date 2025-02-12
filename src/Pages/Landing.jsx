@@ -164,12 +164,12 @@ const Landing = () => {
                 lineHeight: "1.5",
               }}
             >
-              The Swedish International School for Applied Technology and
-              Software was established in 2022. It is one of the top ten
+              El Sewedy International School for Applied Technology and
+              Software, established in 2022, is ranked among the top ten
               international schools for applied technology. Our mission is to
-              equip students with the skills needed for success both locally and
-              internationally, shaping a brighter future through innovative
-              education.
+              empower students with the skills and knowledge needed for success
+              in both local and global industries, fostering a brighter future
+              through cutting-edge education and innovation.
             </Typography>
           </RevealLeftARight>
         </Stack>
@@ -227,7 +227,7 @@ const Landing = () => {
           component={"img"}
           src={homep}
           sx={{
-            width: "160px",
+            width: "250px",
             position: "absolute",
             bottom: 10,
             right: 10,
