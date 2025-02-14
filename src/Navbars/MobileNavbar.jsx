@@ -22,6 +22,7 @@ const MobileNavbar = () => {
     { text: "Home", path: "/" },
     { text: "Our Courses", path: "/courses" },
     { text: "About", path: "/about" },
+    { text: "Work", path: "/Work" },
   ];
 
   return (
