@@ -54,7 +54,7 @@ const Navbar = () => {
           justifyContent: "center",
           gap: isSmallScreen ? "15px" : "30px",
           mt: isSmallScreen ? 2 : 0,
-          mr:6
+          mr: 6,
         }}
       >
         <Reveal duration={0.8}>
@@ -137,6 +137,35 @@ const Navbar = () => {
             About Us
           </Typography>
         </Reveal>
+
+        <Reveal duration={1.2}>
+          <Typography
+            sx={{
+              cursor: "pointer",
+              fontWeight: "300",
+              fontSize: isSmallScreen ? "16px" : "20px",
+              position: "relative",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                width: "0%",
+                height: "2px",
+                bottom: "-5px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                backgroundColor: "#EF3131",
+                transition: "width 0.3s ease-in-out",
+              },
+              "&:hover::after": {
+                width: "100%",
+              },
+            }}
+            onClick={() => navigate("/Work")}
+          >
+            Work with us
+          </Typography>
+        </Reveal>
+
       </Stack>
 
       {/* Login Button */}
@@ -144,16 +173,15 @@ const Navbar = () => {
         sx={{
           mt: isSmallScreen ? 2 : 0,
           alignItems: "center",
-          mr:10
+          mr: 10,
         }}
       >
-     
-          <CostumButton
-            width={isSmallScreen ? "100px" : "120px"}
-            height={isSmallScreen ? "40px" : "44px"}
-            Text={"Login"}
-            border={"10px"}
-          />
+        <CostumButton
+          width={isSmallScreen ? "100px" : "120px"}
+          height={isSmallScreen ? "40px" : "44px"}
+          Text={"Login"}
+          border={"10px"}
+        />
       </Stack>
     </Stack>
   );

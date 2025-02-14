@@ -7,12 +7,14 @@ import IsAuthLayOut from "./Layouts/IsAuthLayOut";
 import Courses from "./Pages/Courses";
 import NoMatchRoute from "./Pages/NoMatchRoute";
 import Login from "./Pages/Login";
+import Work from './Pages/Work.jsx'
 const App = () => {
   return (
     <Routes>
       <Route element={<NavbarLayOut />}>
         <Route path="/" index element={<Landing />} />
         <Route path="/about" element={<About />} />
+        <Route path="/Work" element={<Work />} />
         <Route path="/login" element={<Login />} />
         <Route element={<IsAuthLayOut />}>
           <Route path="/courses" element={<Courses />} />
